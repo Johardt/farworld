@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ddvjiwhp8mxi1"]
+
+[ext_resource type="Script" uid="uid://bw0pdp1h3ho4h" path="res://scripts/pawn.gd" id="1_btsf1"]
+[ext_resource type="Texture2D" uid="uid://bse5i2tx77xiq" path="res://icon.svg" id="2_fxa0g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5qli"]
+
+[node name="Pawn" type="StaticBody2D" unique_id=1222924674]
+script = ExtResource("1_btsf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146055495]
+shape = SubResource("CapsuleShape2D_o5qli")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740204315]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fxa0g")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1159992861]
