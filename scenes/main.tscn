@@ -1,6 +1,10 @@
 [gd_scene format=4 uid="uid://b418qo0rtv2c4"]
 
 [ext_resource type="TileSet" uid="uid://b36gqydo4gj1w" path="res://tilesets/default.tres" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://bse5i2tx77xiq" path="res://icon.svg" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://bw0pdp1h3ho4h" path="res://scripts/character_body_2d.gd" id="2_sugp2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5qli"]
 
 [node name="Node" type="Node" unique_id=972001344]
 editor_description = "Root Node"
@@ -13,3 +17,17 @@ tile_set = ExtResource("1_o5qli")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=996386316]
 position = Vector2(576, 326)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=877014362]
+position = Vector2(122, 138)
+disable_mode = 1
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("2_sugp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=919040002]
+shape = SubResource("CapsuleShape2D_o5qli")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=806658521]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_0wfyh")
