@@ -13,7 +13,13 @@ config_version=5
 config/name="farworld"
 run/main_scene="uid://b418qo0rtv2c4"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/show_image=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
