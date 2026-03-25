@@ -7,11 +7,16 @@
 resource_name = "Camera Movement"
 script/source = "extends Camera2D
 
+func _ready() -> void:
+	position.x = ProjectSettings.get_setting(\"display/window/size/viewport_width\")
+	position.y = ProjectSettings.get_setting(\"display/window/size/viewport_height\")
+	zoom = Vector2.ONE
+
 func _process(delta: float) -> void:
-	var direction_x = Input.get_axis(\"left\", \"right\")
-	var direction_y = Input.get_axis(\"up\", \"down\")
-	var direction_z = Input.get_axis(\"zoom_in\", \"zoom_out\")
-	var speed = get_meta(\"speed\") * delta * 100
+	var direction_x: float = Input.get_axis(\"left\", \"right\")
+	var direction_y: float = Input.get_axis(\"up\", \"down\")
+	var direction_z: float = Input.get_axis(\"zoom_in\", \"zoom_out\")
+	var speed: float = get_meta(\"speed\") * delta * 100
 	
 	position += Vector2(direction_x, direction_y).normalized() * speed
 	zoom += Vector2.ONE * direction_z
@@ -26,6 +31,5 @@ metadata/is_root = true
 position = Vector2(16, 16)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=996386316]
-position = Vector2(576, 326)
 script = SubResource("GDScript_0wfyh")
 metadata/speed = 5.0
